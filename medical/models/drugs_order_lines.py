@@ -1,4 +1,4 @@
-from odoo import models,fields
+from odoo import models,fields,api
 
 class DrugsPropertyOrders(models.Model):
     _name="drugs.property.orders.lines"
@@ -9,4 +9,9 @@ class DrugsPropertyOrders(models.Model):
     drug_id=fields.Many2one("drugs.property",required=True)
     quantity=fields.Integer(required=True)
     price=fields.Float(related="drug_id.selling_price",readonly=True)
-    subtotal=fields.Float()
+    subtotal=fields.Float(compute="_compute_subtotal",store=True)
+
+    @api.depends('quantity','price')
+    def _compute_subtotal(self):
+        for record in self:
+            record.subtotal=record.quantity*record.price

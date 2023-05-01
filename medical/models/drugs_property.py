@@ -1,4 +1,4 @@
-from odoo import models,fields
+from odoo import models,fields,api
 
 class DrugsProperty(models.Model):
     _name="drugs.property"
@@ -27,3 +27,13 @@ class DrugsProperty(models.Model):
 
 
     tag_ids=fields.Many2many("drugs.property.tags")
+
+    # @api.depends('quantity')
+    # def _compute_quantity(self):
+    #     if self.quantity<0:
+    #         return {
+    #             'warning':{
+    #                 'title':'warning',
+    #                 'message':'Quantity cannot be negative',
+    #             },
+    #         }

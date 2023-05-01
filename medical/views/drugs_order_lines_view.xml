@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="drugs_order_lines_model_order" model="ir.actions.act_window">
+        <field name="name">Order Lines</field>
+        <field name="res_model">drugs.property.orders.lines</field>
+        <field name="view_mode">tree,form</field>
+    </record><!-- Tree View -->
+    <record id="drugs_order_line_view_tree" model="ir.ui.view">
+        <field name="name">medical.order.line.tree</field>
+        <field name="model">drugs.property.orders.lines</field>
+        <field name="arch" type="xml">
+            <tree string="Order Lines">
+                <field name="drug_id" string="Drug ID"/>
+                <field name="quantity"/>
+                <field name="price"/>
+                <field name="subtotal"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+
+        <record id="order_Line_view_form" model="ir.ui.view">
+        <field name="name">Order Lines Form</field>
+        <field name="model">drugs.property.orders.lines</field>
+        <field name="arch" type="xml">
+            <form string="Order Lines">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="drug_id" string="Drug ID"/>
+                            <field name="quantity"/>
+                            <field name="price"/>
+                        </group>
+                        <group>
+                            <field name="order_id"/>
+                            <field name="subtotal"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+<!-- search View -->
+
+      <record id="drugs_order_line_view_search" model="ir.ui.view">
+        <field name="name">Order Lines search</field>
+        <field name="model">drugs.property.orders.lines</field>
+        <field name="arch" type="xml">
+            <search string="Order Model">
+                <field name="drug_id" string="Drug ID"/>
+                <field name="order_id" string="Order ID"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>

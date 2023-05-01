@@ -25,7 +25,7 @@
     <!-- Form View -->
 
     <record id="order_view_form" model="ir.ui.view">
-        <field name="name">Customer Form</field>
+        <field name="name">Order Form</field>
         <field name="model">drugs.property.orders</field>
         <field name="arch" type="xml">
             <form string="Order">
@@ -34,9 +34,19 @@
                         <group>
                             <field name="cust_id" string="ID"/>
                             <field name="order_date"/>
+                        </group>
+                        <group>
                             <field name="total_amount"/>
+                            <!-- <field name="order_lines"/> -->
                         </group>
                     </group>
+                        <notebook>
+
+                        <page name="order_lines" string="Order Lines">
+                            <field name="order_lines"/>
+                        
+                        </page>
+                        </notebook>
                 </sheet>
             </form>
         </field>

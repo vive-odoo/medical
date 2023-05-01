@@ -10,6 +10,7 @@
         </menuitem>
         <menuitem id="drugs_third_menu" name="Order">
             <menuitem id="drugs_order_detail_type" action="drugs_order_model_order"/>
+            <menuitem id="drugs_order_lines_detail_type" action="drugs_order_lines_model_order"/>
         </menuitem>
     </menuitem>
 </odoo>

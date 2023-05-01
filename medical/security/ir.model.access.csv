@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+medical.access_drugs_property,access_drugs_property,medical.model_drugs_property,base.group_user,1,1,1,1
+medical.access_drugs_property_tags,access_drugs_property_tags,medical.model_drugs_property_tags,base.group_user,1,1,1,1
+medical.access_drugs_property_customers,access_drugs_property_customers,medical.model_drugs_property_customers,base.group_user,1,1,1,1
+medical.access_drugs_property_orders,access_drugs_property_orders,medical.model_drugs_property_orders,base.group_user,1,1,1,1
+medical.access_drugs_property_orders_lines,access_drugs_property_orders_lines,medical.model_drugs_property_orders_lines,base.group_user,1,1,1,1

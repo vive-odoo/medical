@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+<record id="drugs_property_tags_setting" model="ir.actions.act_window">
+    <field name="name">Property Tags</field>
+    <field name="res_model">drugs.property.tags</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<!-- Form View -->
+
+    <record id="drugs_property_tags_form_setting" model="ir.ui.view">
+        <field name="name">Property Tags</field>
+        <field name="model">drugs.property.tags</field>
+        <field name="arch" type="xml">
+            <form string="Property">
+                <sheet>
+                    <group>
+                        <field name="name" string="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>

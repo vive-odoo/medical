@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="drugs_customer_model_setting" model="ir.actions.act_window">
+        <field name="name">Customer Model</field>
+        <field name="res_model">drugs.property.customers</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <!-- Tree View -->
+    
+    
+    <record id="customer_view_tree" model="ir.ui.view">
+        <field name="name">medical.customer.tree</field>
+        <field name="model">drugs.property.customers</field>
+        <field name="arch" type="xml">
+            <tree string="customer">
+                <field name="cust_id" string="ID"/>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="address"/>
+            </tree>
+        </field>
+    </record>
+    
+    <!-- Form View -->
+    <record id="customer_view_form" model="ir.ui.view">
+        <field name="name">Customer Form</field>
+        <field name="model">drugs.property.customers</field>
+        <field name="arch" type="xml">
+            <form string="customer">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="cust_id" string="ID"/>
+                            <field name="name"/>
+                            <field name="email"/>
+                        </group>
+                        <group>
+                            <field name="phone"/>
+                            <field name="address"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Search View -->
+
+
+      <record id="drugs_customer_view_search" model="ir.ui.view">
+        <field name="name">Customer search</field>
+        <field name="model">drugs.property.customers</field>
+        <field name="arch" type="xml">
+            <search string="Customer Model">
+                <field name="name" string="Title"/>
+                <field name="cust_id"/>
+                <field name="email"/>
+                <field name="phone"/>
+            </search>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="drug_property_action" model="ir.actions.act_window">
+        <field name="name"> Property</field>
+        <field name="res_model">drugs.property</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- Tree View -->
+    <record id="drug_property_view_tree" model="ir.ui.view">
+        <field name="name">medical.drugs.tree</field>
+        <field name="model">drugs.property</field>
+        <field name="arch" type="xml">
+            <tree string="medical">
+                <field name="drug_id"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="quantity"/>
+                <field name="selling_price"/>
+                <field name="manufacture"/>
+                <field name="expiry_date"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Form View -->
+    <record id="drugs_property_view_form" model="ir.ui.view">
+        <field name="name">Drugs form</field>
+        <field name="model">drugs.property</field>
+        <field name="arch" type="xml">
+            <form string="Test">
+                <header>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <field name="tag_ids" widget="many2many_tags"/>
+                    <group>
+                        <group>
+                            <field name="drug_id" string="Drug ID"/>
+                            <field name="expiry_date"/>
+                        </group>
+                        <group>
+                            <field name="quantity"/>
+                            <field name="selling_price"/>
+                            <field name="state" string="Level"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <group>
+                                <group>
+                                    <field name="description"/>
+                                    <field name="manufacture"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <!-- Search -->
+    <record id="drugs_property_view_search" model="ir.ui.view">
+        <field name="name">Drugs search</field>
+        <field name="model">drugs.property</field>
+        <field name="arch" type="xml">
+            <search string="Property">
+                <field name="name" string="Title"/>
+                <field name="drug_id"/>
+                <field name="quantity"/>
+                <field name="selling_price"/>
+                <field name="manufacture"/>
+                <field name="expiry_date"/>
+                <field name="state"/>
+            </search>
+        </field>
+    </record>
+</odoo>

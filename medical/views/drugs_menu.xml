@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="medical_menu_root" name="Medical">
+        <menuitem id="medical_drugs_menu" name="Drugs">
+            <menuitem id="drugs_property_menu_action" action="drug_property_action"/>
+            <menuitem id="drugs_setting_property_type" action="drugs_property_tags_setting"/>
+        </menuitem>
+        <menuitem id="drugs_second_menu" name="Customer">
+            <menuitem id="drugs_setting_customer_model" action="drugs_customer_model_setting"/>
+        </menuitem>
+        <menuitem id="drugs_third_menu" name="Order">
+            <menuitem id="drugs_order_detail_type" action="drugs_order_model_order"/>
+        </menuitem>
+    </menuitem>
+</odoo>

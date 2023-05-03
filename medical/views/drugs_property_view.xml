@@ -29,6 +29,9 @@
         <field name="arch" type="xml">
             <form string="Test">
                 <header>
+                    <button name="action_store_medicine"  type="object" string="Store"/>
+                <button name="action_canceled_medicine"  type="object" string="Cancel"/>
+                
                     <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>

@@ -3,6 +3,7 @@ from odoo import models,fields,api
 class DrugsPropertyOrders(models.Model):
     _name="drugs.property.orders.lines"
     _description="Order Lines for the orders placed by customers"
+    _rec_name = 'order_id'
 
 
     order_id=fields.Many2one("drugs.property.orders",required=True)

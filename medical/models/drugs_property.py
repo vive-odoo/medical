@@ -26,6 +26,9 @@ class DrugsProperty(models.Model):
         default="order",
     )
 
+    _sql_constraints=[('name_unique','Unique(name)','Medicine Name must be unique.'),
+    ('medicine_quantity','CHECK(quantity>0)','The quantity not be zero or less than.')]
+
 
     tag_ids=fields.Many2many("drugs.property.tags")
 
@@ -46,8 +49,8 @@ class DrugsProperty(models.Model):
         for record in self:
             if record.state=='canceled' :
                 raise UserError("A store medicine cannot be canceled")
-            elif record.quantity<0:
-                raise UserError("Negative quantity not be stored")    
+            # elif record.quantity<0:
+            #     raise UserError("Negative quantity not be stored")    
             record.state="store"      
 
 

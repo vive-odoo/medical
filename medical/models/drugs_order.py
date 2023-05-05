@@ -18,7 +18,7 @@ class DrugsPropertyOrders(models.Model):
         default=None,
     )
 
-
+    # _sql_constraints=[('date_customer_unique','UNIQUE(order_date , cust_id)','An order already exists for this customer on this date.')]            
 
     @api.depends('order_lines.subtotal')
     def _compute_total_amount(self):
@@ -40,4 +40,6 @@ class DrugsPropertyOrders(models.Model):
         for record in self:
             if record.state=='sold':
                 raise UserError("A sold medicine cannot be canceled")
-            record.state="canceled"          
+            record.state="canceled"      
+
+    

@@ -9,4 +9,5 @@ class DrugsPropertyCustomer(models.Model):
     email=fields.Char()
     phone=fields.Char()
     cust_id=fields.Integer(required=True)
+    order_lines=fields.One2many("drugs.property.orders.lines","order_id",string="Order Lines",readonly=True)
     _sql_constraints=[('phone_unique','UNIQUE(phone)','Phone number must be unique.')]

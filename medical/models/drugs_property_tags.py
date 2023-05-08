@@ -8,3 +8,4 @@ class DrugsPropertyTags(models.Model):
 
     name=fields.Char(string="Tags", required=True)
     _sql_constraints=[('unique_property_tag_name','unique(name)','The property tag name should be unique')]
+    color=fields.Integer()

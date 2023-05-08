@@ -16,3 +16,8 @@ class DrugsPropertyOrders(models.Model):
     def _compute_subtotal(self):
         for record in self:
             record.subtotal=record.quantity*record.price
+
+    _sql_constraints=[
+        ('quantity_positive','CHECK(quantity>0)','Quantity must be positive.'),
+        ('price_non_negative','CHECK(price>=0)','Price must be non negative.'),
+    ]        

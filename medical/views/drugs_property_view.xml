@@ -32,7 +32,7 @@
                     <button name="action_store_medicine"  type="object" string="Store"/>
                 <button name="action_canceled_medicine"  type="object" string="Cancel"/>
                 
-                    <field name="state" widget="statusbar"/>
+                    <field name="state" widget="statusbar" options="{'color_field': 'color'}"/>
                 </header>
                 <sheet>
                     <h1>

@@ -32,8 +32,8 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="cust_id" string="ID"/>
-                            <field name="name"/>
+                            <field name="cust_id" string="Customer ID"/>
+                            <field name="name" string="Customer Name"/>
                             <field name="email"/>
                         </group>
                         <group>
@@ -41,6 +41,18 @@
                             <field name="address"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Order lines">
+                            <field name="order_lines">
+                                <tree>
+                                <field name="order_id"/>
+                                <field name="drug_id"/>
+                                <field name="quantity"/>
+                                <field name="price"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>

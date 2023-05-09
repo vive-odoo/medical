@@ -41,14 +41,14 @@
                             <field name="address"/>
                         </group>
                     </group>
+                    
                     <notebook>
                         <page string="Order lines">
-                            <field name="order_lines">
+                            <field name="order_ids">
                                 <tree>
-                                <field name="order_id"/>
-                                <field name="drug_id"/>
-                                <field name="quantity"/>
-                                <field name="price"/>
+                                <field name="order_date"/>
+                                <field name="cust_id"/>
+                                <field name="total_amount"/>
                                 </tree>
                             </field>
                         </page>

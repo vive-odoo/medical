@@ -13,6 +13,7 @@ class DrugsProperty(models.Model):
     selling_price=fields.Float()
     manufacture=fields.Many2one("res.partner", string="Salesman",default=lambda self:self.env.user)
     expiry_date=fields.Date(required=True)
+    is_editable=fields.Boolean(string='Is Editable',default=True)
 
     state=fields.Selection(
         selection=[
@@ -59,3 +60,9 @@ class DrugsProperty(models.Model):
             if record.state=='store':
                 raise UserError("A store medicine cannot be canceled")
             record.state="canceled"  
+
+    def edit_mode(self):
+        self.is_editable=not self.is_editable
+        return{
+            'is_editable':self.is_editable,
+        }        

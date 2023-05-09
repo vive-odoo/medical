@@ -5,10 +5,13 @@ class DrugsPropertyOrders(models.Model):
     _description="Order Placed by customer from the medical"
     _rec_name = 'cust_id'
 
-    cust_id=fields.Many2one("drugs.property.customers",required=True)
+    cust_id=fields.Many2one("drugs.property.customers",required=True, string="Customer")
     order_date=fields.Date(default=fields.Date.today())
     total_amount=fields.Float(compute="_compute_total_amount", store=True)
     order_lines=fields.One2many("drugs.property.orders.lines","order_id", string="Order Lines")
+    # quantity=fields.Integer(related="order_lines.quantity")
+    # drug_id=fields.Many2one(related="order_lines.drug_id")
+    # price=fields.Float(related="order_lines.price")
     state=fields.Selection(
         selection=[
             ("sold","Sold"),

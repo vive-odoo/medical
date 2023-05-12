@@ -4,6 +4,7 @@ class DrugsPropertyOrders(models.Model):
     _name="drugs.property.orders"
     _description="Order Placed by customer from the medical"
     _rec_name = 'cust_id'
+    _order="order_date desc"
 
     cust_id=fields.Many2one("drugs.property.customers",required=True, string="Customer")
     order_date=fields.Date(default=fields.Date.today())
@@ -14,11 +15,12 @@ class DrugsPropertyOrders(models.Model):
     # price=fields.Float(related="order_lines.price")
     state=fields.Selection(
         selection=[
+            ("new","New"),
             ("sold","Sold"),
             ("canceled","Canceled"),
         ],
         copy=False,
-        default=None,
+        default="new",
     )
 
     # _sql_constraints=[('date_customer_unique','UNIQUE(order_date , cust_id)','An order already exists for this customer on this date.')]            
@@ -33,8 +35,6 @@ class DrugsPropertyOrders(models.Model):
         for record in self:
             if record.state=='canceled' :
                 raise UserError("A sold medicine cannot be canceled")
-            elif record.order_lines.quantity<0:
-                raise UserError("Negative quantity not be sold")
                 # record.total_amount=0    
             record.state="sold"      
 

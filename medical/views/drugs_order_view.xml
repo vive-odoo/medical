@@ -13,10 +13,11 @@
         <field name="name">medical.order.tree</field>
         <field name="model">drugs.property.orders</field>
         <field name="arch" type="xml">
-            <tree string="Order">
+            <tree string="Order" decoration-muted="state=='sold'" decoration-danger="state=='canceled'" decoration-success="state=='new'" >
                 <field name="cust_id" string="ID"/>
                 <field name="order_date"/>
                 <field name="total_amount"/>
+                <field name="state" />
             </tree>
         </field>
     </record>
@@ -30,8 +31,8 @@
         <field name="arch" type="xml">
             <form string="Order">
             <header>
-                    <button name="action_sold_medicine"  type="object" string="Sold"/>
-                <button name="action_canceled_medicine"  type="object" string="Cancel"/>
+                    <button name="action_sold_medicine"  type="object" string="Sold" class="oe_highlight" attrs="{'invisible':[('state','in',['sold','canceled'])]}"/>
+                <button name="action_canceled_medicine"  type="object" string="Cancel" attrs="{'invisible':[('state','in',['sold','canceled'])]}"/>
                 
                     <field name="state" widget="statusbar"/>
                 </header>
@@ -49,7 +50,7 @@
                         <notebook>
 
                         <page name="order_lines" string="Order Lines">
-                            <field name="order_lines"/>
+                            <field name="order_lines" attrs="{'readonly':[('state','in',['sold','canceled'])]}"/>
                         
                         </page>
                         </notebook>

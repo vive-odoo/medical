@@ -9,7 +9,7 @@
         <field name="name">medical.order.line.tree</field>
         <field name="model">drugs.property.orders.lines</field>
         <field name="arch" type="xml">
-            <tree string="Order Lines">
+            <tree string="Order Lines" editable="bottom">
                 <field name="drug_id" string="Drug ID"/>
                 <field name="quantity"/>
                 <field name="price"/>

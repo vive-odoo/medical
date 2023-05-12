@@ -4,6 +4,10 @@ class DrugsPropertyOrders(models.Model):
     _name="drugs.property.orders.lines"
     _description="Order Lines for the orders placed by customers"
     _rec_name = 'order_id'
+    _sql_constraints=[
+        ('quantity_positive','CHECK(quantity>0)','Quantity must be positive.'),
+        ('price_non_negative','CHECK(price>=0)','Price must be non negative.'),
+    ]
 
 
     order_id=fields.Many2one("drugs.property.orders",required=True)
@@ -17,7 +21,4 @@ class DrugsPropertyOrders(models.Model):
         for record in self:
             record.subtotal=record.quantity*record.price
 
-    _sql_constraints=[
-        ('quantity_positive','CHECK(quantity>0)','Quantity must be positive.'),
-        ('price_non_negative','CHECK(price>=0)','Price must be non negative.'),
-    ]        
+           

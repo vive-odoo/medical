@@ -10,9 +10,10 @@
         <field name="name">medical.drugs.tree</field>
         <field name="model">drugs.property</field>
         <field name="arch" type="xml">
-            <tree string="medical" create='False'>
+            <tree string="medical" >
                 <field name="drug_id"/>
                 <field name="name"/>
+                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" />
                 <field name="description"/>
                 <field name="quantity"/>
                 <field name="selling_price"/>
@@ -29,35 +30,35 @@
         <field name="arch" type="xml">
             <form string="Test">
                 <header><!-- {'readonly':[('is_editable','=',False)]} -->
-                    <button name="action_store_medicine"  type="object" string="Store" class="oe_highlight" attrs="{'invisible':[('is_editable','=',False),('state','in',['store','canceled'])]}"/>
-                <button name="action_canceled_medicine"  type="object" string="Cancel" attrs="{'invisible':[('is_editable','=',False),('state','in',['store','canceled'])]}" /> 
-                <button name="edit_mode"  type="object" string="Edit" />
+                    <button name="action_store_medicine"  type="object" string="Store" class="oe_highlight" attrs="{'invisible':[('state','in',['store','canceled'])]}"/>
+                <button name="action_canceled_medicine"  type="object" string="Cancel" attrs="{'invisible':[('state','in',['store','canceled'])]}" /> 
+                <!-- <button name="edit_mode"  type="object" string="Edit" /> -->
                     <field name="state" widget="statusbar" />
                 </header>
                 <sheet>
                 <field name="is_editable" invisible="1"/>
                     <h1>
-                        <field name="name" attrs="{'readonly':[('is_editable','=',False)]}"/>
+                        <field name="name"  />
                     </h1>
                     <group>
-                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" attrs="{'readonly':[('is_editable','=',False)]}"/>
+                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"  />
                         <group>
-                            <field name="drug_id" string="Drug ID" attrs="{'readonly':[('is_editable','=',False)]}"/>
-                            <field name="expiry_date" attrs="{'readonly':[('is_editable','=',False)]}"/>
+                            <field name="drug_id" string="Drug ID"  />
+                            <field name="expiry_date"  />
                         </group>
                         <group>
                         <!-- <group attrs="{'invisible':[('state','in',['store','canceled'])]}"> -->
-                            <field name="quantity" attrs="{'readonly':[('is_editable','=',False)]}"/>
-                            <field name="selling_price" attrs="{'readonly':[('is_editable','=',False)]}"/>
-                            <field name="state" string="Level" attrs="{'readonly':[('is_editable','=',False)]}"/>
+                            <field name="quantity"  />
+                            <field name="selling_price"  />
+                            <field name="state" string="Level"  />
                         </group>
                     </group>
                     <notebook>
                         <page string="Description">
                             <group>
                                 <group>
-                                    <field name="description" attrs="{'readonly':[('is_editable','=',False)]}"/>
-                                    <field name="manufacture" attrs="{'readonly':[('is_editable','=',False)]}"/>
+                                    <field name="description"  />
+                                    <field name="manufacture"  />
                                 </group>
                             </group>
                         </page>

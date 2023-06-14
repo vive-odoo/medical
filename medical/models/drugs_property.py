@@ -68,20 +68,5 @@ class DrugsProperty(models.Model):
         }      
 
 
-    def action_sold_count(self):
-        order_lines = self.env['drugs.property.orders.lines'].search([('drug_id', '=', self.id)])
-        sold_count = len(order_lines)
-        message = f"The medicine '{self.name}' has been sold {sold_count} times."
-        return {
-            'name': 'Medicine Sold Count',
-            'type': 'ir.actions.act_window',
-            'res_model': 'drugs.property',
-            'view_mode': 'form',
-            'res_id': self.id,
-            'target': 'inline',
-            'context': {
-                'default_name': self.name,
-                'default_message': message,
-            },
-        }
+
     

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+
+    <template id="medical_offers_templates">
+        <t t-if="record.order_lines">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Drug ID</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-set="Orders" t-value="record.mapped(&apos;order_lines&apos;)"></t>
+                    <tr t-foreach="Orders" t-as="order">
+                        <td>
+                            <span t-field="order.order_id"/>
+                        </td>
+                        <td>
+                            <span t-field="order.drug_id"/>
+                        </td>
+                        <td>
+                            <span t-field="order.quantity"/>
+                        </td>
+                        <td>
+                            <span t-field="order.price"/>
+                        </td>
+                        <td>
+                            <span t-field="order.subtotal"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </t>
+
+        <t t-else="">
+            <div>
+                <strong>No offer Available</strong>
+            </div>
+        </t>
+    </template>
+
+
+
+    <template id="medical_drugs_offers">
+        <t t-foreach="docs" t-as="record">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div id="test">
+                        <h1>
+                            <strong>Customer : </strong>
+                            <span t-field="record.cust_id"/>
+                        </h1>
+                        <div>
+                            <strong>Order Date: </strong>
+                            <span t-field="record.order_date"/>
+                            <br></br>
+                            <strong>Status : </strong>
+                            <span t-field="record.state"/>
+                            <br></br>
+                            <strong>Total Amount : </strong>
+                            <span t-field="record.total_amount"/>
+                        </div>
+                        <t t-call="medical.medical_offers_templates"></t>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

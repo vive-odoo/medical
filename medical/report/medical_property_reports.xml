@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+  <record id="report_property_offer" model="ir.actions.report">
+    <field name="name">Offer Reports</field>
+    <field name="model">drugs.property.orders</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">medical.medical_drugs_offers</field>
+    <field name="report_file">medical.medical_drugs_offers</field>
+    <field name="binding_model_id" ref="model_drugs_property_orders"/>
+    <field name="binding_type">report</field>
+  </record>
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<template id="medical_drug_report_temp" inherit_id="medical.medical_drugs_offers">
+    <xpath expr="//div[@id='test']" position="inside">
+        <div>
+            <t t-if="record.state=='sold'">
+                <strong>!!! Invoice has already been created !!!</strong>
+            </t>
+        </div>
+    </xpath>
+</template>
